@@ -1,9 +1,16 @@
 .home {
-    h1 {
-      color: blue;
-    }
-    p {
-      font-size: 1.2em;
-    }
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ensure the home container takes full viewport height */
+
+  .title {
+    font-size: 1.5em;
+    color: #333;
+    background-color: aqua;
+    min-height: 20%; /* Set a minimum height */
+    display: flex;
+    align-items: center; /* Center the text vertically */
+    justify-content: center; /* Center the text horizontally */
+    padding: 20px; /* Add padding if needed */
   }
-  
+}

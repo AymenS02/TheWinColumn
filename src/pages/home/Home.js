@@ -4,7 +4,7 @@ import './Home.scss';
 function Home() {
   return (
     <div className="home">
-      <h1>Home Page</h1>
+      <h1 className="title">Relentless Coaching!</h1>
       <p>Welcome to the home page!</p>
     </div>
   );

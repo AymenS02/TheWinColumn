@@ -6,6 +6,7 @@ import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import Courses from './pages/courses/Courses';
 import Profile from './pages/profile/Profile';
+import Community from './pages/community/Community';
 import './App.scss';
 
 function App() {
@@ -15,12 +16,16 @@ function App() {
         <nav className="nav">
           <ul className="heading">
             <li className="heading-element">
-              <Link to="/">Home</Link>
+              <Link to="/">
+              <img className="logo" src="/thewin.png" alt="profile" />
+              </Link>
             </li>
             <li className="heading-element">
               <Link to="/courses">Courses</Link>
             </li>
-            // Add Community Section
+            <li className="heading-element">
+              <Link to="/community">Community</Link>
+            </li>
             <li className="heading-element">
               <Link to="/about">About</Link>
             </li>
@@ -29,7 +34,7 @@ function App() {
             </li>
             <li className="heading-element"> 
               <Link to="/profile">
-                <img src="/profile-user.png" alt="profile" />
+                <img className="pfp" src="/profile-user.png" alt="profile" />
               </Link>
             </li>
           </ul>
@@ -38,6 +43,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/about" element={<About />} />
+          <Route path="/community" element={<Community />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>

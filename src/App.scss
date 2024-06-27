@@ -1,27 +1,51 @@
+html {
+  background-color: rgb(224, 229, 231);
+}
+
 .navbar {
   margin: 0;
 
   .nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: beige;
+    background-color: #333738;
 
     .heading {
-      list-style: none; /* Removes bullet points */
+      color: #AECDD9;
+      margin-right: 4vh;
       width: 100%;
       font-size: 1.5rem;
       font-weight: bold;
       display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
+      justify-content: flex-end;
       gap: 1rem;
-      align-items: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
 
-      img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+      .heading-element:first-child {
+        margin-right: auto; /* Pushes the first child to the start */
+      }
+
+      .heading-element:last-child {
+        margin-left: 4vh; /* Adds margin to the last child */
+      }
+
+      .heading-element {
+        list-style: none; /* Removes bullet points */
+
+        a {
+          color: inherit; /* Inherit the color from parent */
+          text-decoration: none; /* Removes underline from links */
+        }
+
+        .logo {
+          width: 6vh;
+          height: auto;
+        }
+
+        .pfp {
+          width: 3vh;
+          height: auto;
+        }
       }
     }
   }
