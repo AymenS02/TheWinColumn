@@ -1,0 +1,23 @@
+.navbar {
+  margin: 0;
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: beige;
+
+    .heading {
+      list-style: none; /* Removes bullet points */
+      width: 100%;
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 1rem;
+      align-items: flex-start;
+
+    }
+  }
+}
