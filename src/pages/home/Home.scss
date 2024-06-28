@@ -4,13 +4,55 @@
   height: 100vh; /* Ensure the home container takes full viewport height */
 
   .title {
-    font-size: 1.5em;
-    color: #333;
-    background-color: aqua;
-    min-height: 20%; /* Set a minimum height */
+    margin: 0;
+    font-size: 4em;
+    color: #e3dddd;
+    text-align: center;
+    background: linear-gradient(to bottom, #333738 92%, #E0E5E7 95%) ;
+    min-height: 50%; /* Set a minimum height */
     display: flex;
     align-items: center; /* Center the text vertically */
     justify-content: center; /* Center the text horizontally */
-    padding: 20px; /* Add padding if needed */
+  }
+
+  .course-section {
+    padding-left: 4vh;
+
+    .course-title {
+      font-size: 3em;
+      color: #333738;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 2vh
+    }
+
+    .course-list {
+      list-style: none; /* Remove the default bullet points */
+      padding: 0; /* Remove any default padding */
+      padding-top: 2vh;
+      margin: 0; /* Remove any default margin */
+
+      .course-list-item {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 3vh;
+
+        button{
+          width: 50vh;
+          border: none;
+          border-bottom: 2px solid #333738;
+          background: none;
+          padding: 1vh;
+          text-align: left;
+          margin: 0;
+          font-size: 1.3em;
+          color: inherit;
+          cursor: pointer;
+        }
+
+      }
+    
+    }
   }
 }
