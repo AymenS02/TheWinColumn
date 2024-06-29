@@ -18,16 +18,20 @@ html {
       font-weight: bold;
       display: flex;
       justify-content: flex-end;
-      gap: 1rem;
+      gap: 2rem;
       align-items: center;
       flex-wrap: wrap;
+
+      .heading-element:not(:first-child):hover {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
 
       .heading-element:first-child {
         margin-right: auto; /* Pushes the first child to the start */
       }
 
       .heading-element:last-child {
-        margin-left: 4vh; /* Adds margin to the last child */
+        text-decoration: underline;
       }
 
       .heading-element {

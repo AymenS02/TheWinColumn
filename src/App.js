@@ -33,9 +33,7 @@ function App() {
               <Link to="/contact">Contact</Link>
             </li>
             <li className="heading-element"> 
-              <Link to="/profile">
-                <img className="pfp" src="/profile-user.png" alt="profile" />
-              </Link>
+              <Link to="/courses">Sign In</Link>
             </li>
           </ul>
         </nav>
