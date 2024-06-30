@@ -7,6 +7,7 @@ import Contact from './pages/contact/Contact';
 import Courses from './pages/courses/Courses';
 import Profile from './pages/profile/Profile';
 import Community from './pages/community/Community';
+import Signin from './pages/signin/Signin';
 import './App.scss';
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
               <Link to="/contact">Contact</Link>
             </li>
             <li className="heading-element"> 
-              <Link to="/courses">Sign In</Link>
+              <Link to="/sign-in">Sign In</Link>
             </li>
           </ul>
         </nav>
@@ -44,6 +45,7 @@ function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/sign-in" element={<Signin />} />
         </Routes>
       </div>
     </Router>
