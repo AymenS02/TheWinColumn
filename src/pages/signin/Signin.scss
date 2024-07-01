@@ -8,9 +8,13 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        background-color: aquamarine;
+        background-color: #AECDD9;
         margin: 10vh;
         padding:8vh 15vh;
+        border-radius: 3vh;
+        border: 2px solid #333738;
+
+
 
         .title {
             margin-top: 10vhvh;
@@ -43,12 +47,13 @@
             }
           
             button {
+                margin-top: 0.3vh;
                 align-self: flex-start;
-                padding: 10px 20px;
+                padding: 0.8vh 1.5vh;
                 cursor: pointer;
                 border-radius: 2vh;
             }
-          }
+        }
     }
       
 

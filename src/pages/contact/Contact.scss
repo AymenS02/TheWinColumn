@@ -1,10 +1,59 @@
 /* pages/Contact.module.scss */
 .contact {
-    h1 {
-      color: red;
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #AECDD9;
+    margin: 10vh;
+    padding:8vh 15vh;
+    border-radius: 3vh;
+    border: 2px solid #333738;
+
+    .title {
+      margin-top: 10vhvh;
+      font-size: 3rem;
     }
-    p {
-      font-size: 1.2em;
+
+    .signin-form {
+      display: flex;
+      flex-direction: column;
+      min-width: 40vh;
+      margin: 0;
+      
+      label {
+        display: inline-block;
+        width: 100px;
+        margin-right: 10px;
+      }
+    
+      input {
+        width: 100%;
+        height: 2vh;
+        flex-grow: 1;
+      }
+    
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        
+        .message {
+          width: 100%;
+          height: 10vh;
+        }
+      }
+      
+      button {
+        margin-top: 0.3vh;
+        align-self: flex-start;
+        padding: 0.8vh 1.5vh;
+        cursor: pointer;
+        border-radius: 2vh;
+      }
     }
   }
+}
   
