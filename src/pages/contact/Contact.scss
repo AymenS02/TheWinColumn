@@ -1,5 +1,10 @@
 /* pages/Contact.module.scss */
 .contact {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
   .box {
     display: flex;
     flex-direction: column;
@@ -10,6 +15,7 @@
     padding:8vh 15vh;
     border-radius: 3vh;
     border: 2px solid #333738;
+    box-shadow: 0 0 10px #333738;
 
     .title {
       margin-top: 10vhvh;

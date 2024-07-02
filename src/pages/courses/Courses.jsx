@@ -1,23 +1,11 @@
+// src/pages/courses/Courses.js
 import React from 'react';
 import './Courses.scss';
+import courses from '../../courseData'; // Adjusted path
 
 function Courses() {
-    // Sample course data
-    const enrolledCourses = [
-        {
-            id: 1,
-            title: 'Under Construction: Your Coaching Overview',
-            image: 'course1.png',
-            url: '/course1'
-        },
-        {
-            id: 2,
-            title: 'My Weekly Winning Plays',
-            image: 'course2.png',
-            url: '/course2'
-        },
-        // Add more course objects as needed
-    ];
+    const enrolledCourses = courses.filter(course => course.enrolled);
+    const openCourses = courses.filter(course => !course.enrolled);
 
     return (
         <div className="courses">
@@ -34,14 +22,23 @@ function Courses() {
                                 <h2>{course.title}</h2>
                                 <a href={course.url}>Go to Course</a>
                             </div>
-
                         </div>
                     ))}
                 </div>
             </div>
-            <div className='other-courses'>
+            <div className='my-courses'>
                 <h1>Other Courses</h1>
-                
+                <div className='course-skeleton'>
+                    {openCourses.map(course => (
+                        <div key={course.id} className="course">
+                            <img src={course.image} alt={course.title} />
+                            <div className='course-overlay'>
+                                <h2>{course.title}</h2>
+                                <a href={course.url}>Join Course</a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

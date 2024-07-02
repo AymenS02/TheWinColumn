@@ -27,7 +27,7 @@
         flex-direction: column;
         .course-skeleton {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: wrap;            
             .course {
                 color: #e3dddd;
                 background-color: #333738;
@@ -37,13 +37,14 @@
                 justify-content: space-between;
                 align-items: center;
                 margin-right: 2vh;
-                border-bottom: 1px solid #333738;
+                border-bottom: 2px solid #333738;
+                margin-bottom: 2vh;
+
 
                 img {
                     width: 30vh;
                     height: auto;
-                    object-fit: cover;
-                
+                    object-fit: cover;                
                 }
                 
                 .course-overlay {

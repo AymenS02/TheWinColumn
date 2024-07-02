@@ -1,19 +1,17 @@
+// src/pages/home/Home.js
 import React from 'react';
 import './Home.scss';
+import courses from '../../courseData'; // Adjusted path
+import Courses from '../courses/Courses'; // Adjusted path
 
 function Home() {
-  const courses = [
-    { id: 1, title: 'Course 1', details: 'Details of Course 1' },
-    { id: 2, title: 'Course 2', details: 'Details of Course 2' },
-    { id: 3, title: 'Course 3', details: 'Details of Course 3' },
-    { id: 4, title: 'Course 4', details: 'Details of Course 4' },
-    { id: 5, title: 'Course 5', details: 'Details of Course 5' },
-  ];
+  const [openCourses, setOpenCourses] = React.useState({});
 
-  const [selectedCourse, setSelectedCourse] = React.useState(null);
-
-  const handleCourseClick = (course) => {
-    setSelectedCourse(course);
+  const handleCourseClick = (courseId) => {
+    setOpenCourses(prevState => ({
+      ...prevState,
+      [courseId]: !prevState[courseId] // Toggle the open state of the clicked course
+    }));
   };
 
   return (
@@ -24,13 +22,14 @@ function Home() {
         <ul className="course-list">
           {courses.map((course) => (
             <li key={course.id} className="course-list-item">
-              {selectedCourse && selectedCourse.id === course.id ? (
+              {openCourses[course.id] ? (
                 <div className="course-details">
                   <h3>{course.title}</h3>
                   <p>{course.details}</p>
+                  <button onClick={() => handleCourseClick(course.id)}>Hide Details</button>
                 </div>
               ) : (
-                <button onClick={() => handleCourseClick(course)}>{course.title}</button>
+                <button onClick={() => handleCourseClick(course.id)}>{course.title}</button>
               )}
             </li>
           ))}
@@ -41,4 +40,5 @@ function Home() {
 }
 
 export default Home;
+
 
