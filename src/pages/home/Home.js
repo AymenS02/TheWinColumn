@@ -2,10 +2,10 @@
 import React from 'react';
 import './Home.scss';
 import courses from '../../courseData'; // Adjusted path
-import Courses from '../courses/Courses'; // Adjusted path
 
 function Home() {
   const [openCourses, setOpenCourses] = React.useState({});
+  const enrolledCourses = courses.filter(course => course.enrolled);
 
   const handleCourseClick = (courseId) => {
     setOpenCourses(prevState => ({
@@ -20,7 +20,7 @@ function Home() {
       <div className='course-section'>
         <h2 className='course-title'>Course Curriculum</h2>
         <ul className="course-list">
-          {courses.map((course) => (
+          {enrolledCourses.map((course) => (
             <li key={course.id} className="course-list-item">
               {openCourses[course.id] ? (
                 <div className="course-details">
