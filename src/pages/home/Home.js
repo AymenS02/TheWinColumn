@@ -2,8 +2,10 @@
 import React from 'react';
 import './Home.scss';
 import courses from '../../courseData'; // Adjusted path
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Home() {
+  const location = useLocation();
   const [openCourses, setOpenCourses] = React.useState({});
   const enrolledCourses = courses.filter(course => course.enrolled);
 
@@ -17,6 +19,7 @@ function Home() {
   return (
     <div className="home">
       <h1 className="title">Relentless Coaching!</h1>
+      <h1 className="title">Welcome Back {location.state.id}</h1>
       <div className='course-section'>
         <h2 className='course-title'>Course Curriculum</h2>
         <ul className="course-list">
