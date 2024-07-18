@@ -10,7 +10,7 @@ app.get('/',(req,res)=>{
     res.send('Hello World');
 });
 
-app.post('/register',async(req,res)=>{
+app.post('/',async(req,res)=>{
     const {email,password} = req.body;
 
     try {
@@ -19,8 +19,39 @@ app.post('/register',async(req,res)=>{
         if(check){
             return res.status(400).json({msg:"User already exists"});
         }
+        else {
+            res.json("does not exist")
+        }
     }
     catch(e){
-        console.log(e);
+        res.json("does not exist");
     }
+});
+
+app.post('/register',async(req,res)=>{
+    const {email,password} = req.body;
+
+    const data={
+        email:email,
+        password:password
+    }
+
+    try {
+        const check=await collection.findOne({email: email});
+
+        if(check){
+            return res.status(400).json({msg:"User already exists"});
+        }
+        else {
+            res.json("does not exist")
+            await collection.insterMany([data]);  
+        }
+    }
+    catch(e){
+        res.json("does not exist");
+    }
+});
+
+app.listen(8000,()=>{
+    console.log('Server is running on port 8000');
 });

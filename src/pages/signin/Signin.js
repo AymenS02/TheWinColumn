@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import './Signin.scss';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Signin() {
+
+    const history=useNavigate();
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -14,6 +17,18 @@ function Signin() {
 
             await axios.post("http://localhost:8000/",{
                 email,password
+            })
+            .then((res) => {
+                if(res.data === "User already exists"){
+                    history("/home",{state: {id: email}});
+                }
+                else if (res.data === "does not exist"){
+                    alert("User has not been registered yet");
+                }
+            })
+            .catch(e => {
+                alert("Wrong Details")
+                console.log(e);
             })
 
         }
