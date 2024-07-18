@@ -8,6 +8,7 @@ import Courses from './pages/courses/Courses';
 import Profile from './pages/profile/Profile';
 import Community from './pages/community/Community';
 import Signin from './pages/signin/Signin';
+import Register from './pages/signin/Register';
 import './App.scss';
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/sign-in" element={<Signin />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </Router>

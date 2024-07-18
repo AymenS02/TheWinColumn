@@ -17,6 +17,8 @@ function Signin() {
                 </div>
                 <button type="submit">Sign In</button>
             </form>
+
+            <p>Don't have an account yet? <a href="/register">Register</a></p>
         </div>
     </div>
   );
