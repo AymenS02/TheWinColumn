@@ -23,7 +23,7 @@ function Register() {
                     alert("User already exists")
                 }
                 else if(res.data === "does not exist"){
-                    history("/home",{state:{id:email}})
+                    history("/courses",{state:{id:email}})
                 }
             })
             .catch(e=>{

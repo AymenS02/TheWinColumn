@@ -20,7 +20,7 @@ function Signin() {
             })
             .then((res) => {
                 if(res.data === "User already exists"){
-                    history("/home",{state: {id: email}});
+                    history("/courses",{state: {id: email}});
                 }
                 else if (res.data === "does not exist"){
                     alert("User has not been registered yet");
