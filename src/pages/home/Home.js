@@ -1,4 +1,3 @@
-// src/pages/home/Home.js
 import React from 'react';
 import './Home.scss';
 import courses from '../../courseData'; // Adjusted path
@@ -18,8 +17,10 @@ function Home() {
 
   return (
     <div className="home">
-      <h1 className="title">Relentless Coaching!</h1>
-      <h1 className="title">Welcome Back {location.state.id}</h1>
+      <div className="title-container">
+        <h1 className="title">Relentless Coaching!</h1>
+        <h1 className="sub-title">Welcome Back {location.state?.id || "Guest"}</h1>
+      </div>
       <div className='course-section'>
         <h2 className='course-title'>Course Curriculum</h2>
         <ul className="course-list">
@@ -43,5 +44,3 @@ function Home() {
 }
 
 export default Home;
-
-

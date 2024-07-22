@@ -3,16 +3,30 @@
   flex-direction: column;
   height: 100vh; /* Ensure the home container takes full viewport height */
 
-  .title {
+  .title-container {
     margin: 0;
-    font-size: 4em;
-    color: #e3dddd;
-    text-align: center;
     background-color: #333738;
     min-height: 50%; /* Set a minimum height */
     display: flex;
     align-items: center; /* Center the text vertically */
     justify-content: center; /* Center the text horizontally */
+    flex-direction: column;
+
+    .title {
+      margin: 2vh;
+      font-size: 4em;
+      color: #e3dddd;
+      text-align: center;
+      background-color: #333738;
+    }
+
+    .sub-title {
+      margin: 2vh;
+      font-size: 3em;
+      color: #e3dddd;
+      text-align: center;
+      background-color: #333738;
+    }
   }
 
   .course-section {
