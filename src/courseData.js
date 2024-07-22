@@ -22,7 +22,7 @@ const courses = [
         details: 'This course is designed to help you win the week by focusing on your daily habits and routines.',
         image: 'course3.png',
         url: '/course3',
-        enrolled: true
+        enrolled: false
     },
     // Add more courses as needed
 ];
