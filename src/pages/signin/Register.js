@@ -4,7 +4,9 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
 function Register() {
-    const history = useNavigate();
+    const navigate = useNavigate();
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -12,11 +14,11 @@ function Register() {
         e.preventDefault();
 
         try {
-            const res = await axios.post("http://localhost:8000/register", { email, password });
+            const res = await axios.post("http://localhost:8000/register", { email, password, firstName, lastName});
             if (res.data.msg === "User already exists") {
                 alert("User already exists");
             } else {
-                history("/courses", { state: { id: email } });
+                navigate("/courses", { state: { id: email } });
             }
         } catch (e) {
             alert("Error during registration");
@@ -29,6 +31,14 @@ function Register() {
             <div className="box">
                 <h1 className="title">Create an Account!</h1>
                 <form className="register-form">
+                    <div className="form-group">
+                        <label htmlFor="first-name">First Name</label>
+                        <input type="email" onChange={(e) => { setFirstName(e.target.value) }} placeholder="First Name"/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="last-name">Last Name</label>
+                        <input type="email" onChange={(e) => { setLastName(e.target.value) }} placeholder="Last Name"/>
+                    </div>
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email"/>

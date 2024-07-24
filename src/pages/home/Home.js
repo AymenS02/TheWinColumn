@@ -8,6 +8,8 @@ function Home() {
   const [openCourses, setOpenCourses] = React.useState({});
   const enrolledCourses = courses.filter(course => course.enrolled);
 
+  const firstName = sessionStorage.getItem('userFirstName');
+
   const handleCourseClick = (courseId) => {
     setOpenCourses(prevState => ({
       ...prevState,
@@ -19,7 +21,7 @@ function Home() {
     <div className="home">
       <div className="title-container">
         <h1 className="title">Relentless Coaching!</h1>
-        <h1 className="sub-title">Welcome Back {location.state?.id || "Guest"}</h1>
+        <h1 className="sub-title">Welcome Back {firstName || "Guest"}</h1>
       </div>
       <div className='course-section'>
         <h2 className='course-title'>Course Curriculum</h2>

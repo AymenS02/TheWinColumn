@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Signin() {
-    const history = useNavigate();
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -12,9 +12,10 @@ function Signin() {
         e.preventDefault();
 
         try {
-            const res = await axios.post("http://localhost:8000/", { email, password });
+            const res = await axios.post("http://localhost:8000/signin", { email, password });
             if (res.data.msg === "User already exists") {
-                history("/courses", { state: { id: email } });
+                sessionStorage.setItem('userFirstName', res.data.firstName);
+                navigate("/", { state: { id: res.data.firstName } });
             } else if (res.data.msg === "does not exist") {
                 alert("User has not been registered yet");
             }
