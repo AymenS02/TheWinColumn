@@ -11,6 +11,7 @@ import Signin from './pages/signin/Signin';
 import Register from './pages/signin/Register';
 import Admin from './pages/admin/Admin';
 import './App.scss';
+import { motion } from 'framer-motion';
 
 function App() {
   return (
@@ -18,31 +19,67 @@ function App() {
       <div className="navbar">
         <nav className="nav">
           <ul className="heading">
-            <li className="heading-element">
-              <Link to="/">
-              <img className="logo" src="/thewin.png" alt="profile" />
-              </Link>
-            </li>
-            <li className="heading-element">
+            <motion.li 
+              className="heading-element"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+              >               
+                <Link to="/">
+                  <img className="logo" src="/thewin.png" alt="profile" />
+                </Link>
+            </motion.li>
+            <motion.li 
+            className="heading-element"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            > 
               <Link to="/courses">Courses</Link>
-            </li>
-            <li className="heading-element">
+            </motion.li>
+            <motion.li 
+            className="heading-element"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            >               
               <Link to="/community">Community</Link>
-            </li>
-            <li className="heading-element">
+            </motion.li>
+            <motion.li 
+            className="heading-element"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            >               
               <Link to="/about">About</Link>
-            </li>
-            <li className="heading-element">
+            </motion.li>
+            <motion.li 
+            className="heading-element"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            > 
               <Link to="/contact">Contact</Link>
-            </li>
-            <li className="heading-element">
+            </motion.li>
+            <motion.li 
+            className="heading-element"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            > 
               <Link to="/admin">Admin</Link>
-            </li>
-            <li className="heading-element"> 
+            </motion.li>
+            <motion.li 
+            className="heading-element"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            > 
               <Link to="/sign-in">Sign In</Link>
-            </li>
+            </motion.li>
           </ul>
         </nav>
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
