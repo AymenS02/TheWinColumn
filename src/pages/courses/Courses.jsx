@@ -7,10 +7,12 @@ function Courses() {
     const enrolledCourses = courses.filter(course => course.enrolled);
     const openCourses = courses.filter(course => !course.enrolled);
 
+    const firstName = sessionStorage.getItem('userFirstName');
+
     return (
         <div className="courses">
             <div className='courses-header'>
-                <h1 className='welcome'>Welcome Back, Jay!</h1>
+                <h1 className='welcome'>Welcome Back, {firstName || "Guest"}!</h1>
             </div> 
             <div className='my-courses'>
                 <h1>Currently Enrolled Courses</h1>
