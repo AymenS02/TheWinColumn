@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.scss';
-import courses from '../../courseData'; // Adjusted path
+import courses from '../../courseData.js'; // Adjusted path
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function Home() {

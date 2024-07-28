@@ -1,7 +1,7 @@
 // src/pages/courses/Courses.js
 import React from 'react';
 import './Courses.scss';
-import courses from '../../courseData'; // Adjusted path
+import courses from '../../courseData.js'; // Adjusted path
 
 function Courses() {
     const enrolledCourses = courses.filter(course => course.enrolled);

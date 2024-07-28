@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import Create from './components/create/Create';
+import Create from './components/create/Create.js';
 import './Admin.scss';
 
 function Admin() {

@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Home from './pages/home/Home';
-import About from './pages/about/About';
-import Contact from './pages/contact/Contact';
-import Courses from './pages/courses/Courses';
-import Profile from './pages/profile/Profile';
-import Community from './pages/community/Community';
-import Signin from './pages/signin/Signin';
-import Register from './pages/signin/Register';
-import Admin from './pages/admin/Admin';
+import Home from './pages/home/Home.js';
+import About from './pages/about/About.js';
+import Contact from './pages/contact/Contact.js';
+import Courses from './pages/courses/Courses.jsx';
+import Community from './pages/community/Community.jsx';
+import Signin from './pages/signin/Signin.js';
+import Register from './pages/signin/Register.js';
+import Admin from './pages/admin/Admin.js';
 import './App.scss';
 import { motion } from 'framer-motion';
 
