@@ -1,5 +1,5 @@
 const express = require('express');
-const collection = require('./src/mongo');
+const collection = require('./src/data/mongo');
 const cors = require('cors');
 const { name } = require('ejs');
 const app = express();

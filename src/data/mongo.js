@@ -1,7 +1,7 @@
 const mongoose=require("mongoose")
 mongoose.connect("mongodb+srv://aymenshoteri:Anev3682013.@thewincolumn.0inb4jw.mongodb.net/")
 .then(()=>{
-    console.log("mongodb connected");
+    console.log("mongodb users connected");
 })
 .catch(()=>{
     console.log('failed');
