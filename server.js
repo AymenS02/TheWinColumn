@@ -1,7 +1,7 @@
-const express = require('express');
-const collection = require('./src/data/mongo');
-const cors = require('cors');
-const { name } = require('ejs');
+import express from 'express';
+import cors from 'cors';
+import collection from './src/data/mongo.js';
+
 const app = express();
 
 app.use(express.json());
