@@ -15,7 +15,8 @@ function Signin() {
             const res = await axios.post("http://localhost:8000/signin", { email, password });
             if (res.data.msg === "User already exists") {
                 sessionStorage.setItem('userFirstName', res.data.firstName);
-                navigate("/", { state: { id: res.data.firstName } });
+                sessionStorage.setItem('userEmail', email);
+                navigate("/");
             } else if (res.data.msg === "does not exist") {
                 alert("User has not been registered yet");
             }

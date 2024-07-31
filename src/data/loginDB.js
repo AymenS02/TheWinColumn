@@ -20,7 +20,11 @@ const newSchema = new mongoose.Schema({
   admin: {
     type: Boolean,
     required: true
-  }
+  },
+  enrolledCourses: [{ 
+    type: mongoose.Schema.Types.ObjectId, ref: 'Course' 
+  }],
+
 });
 
 const usersLogin = mongoose.model("users", newSchema);

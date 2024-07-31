@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import loginDB from './src/data/loginDB.js';
-import courseEnrolledDB from './src/data/coursesEnrolledDB.js';
+import courseEnrolledDB from './src/data/courseDB.js';
 
 const app = express();
 
@@ -69,15 +69,57 @@ app.post('/register', async (req, res) => {
 // ----------------------------
 
 // Course Routes
-app.post("/courses", async (req, res) => {
-    const { email, courses } = req.body;
+app.post("/enroll", async (req, res) => {
+  const { email, courseId, courseTitle } = req.body;
 
-    const data = {
-        email: email,
-        courses: Array.from(courses),
-    };
+  try {
+    const user = await loginDB.findOne({ email: email });
+    const course = await courseEnrolledDB.findById(courseId);
+    const title = await courseEnrolledDB.findOne({courseTitle: courseTitle});
 
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    if (!course) {
+      return res.status(404).json({ msg: "Course not found" });
+    }
+
+    if (!user.enrolledCourses.includes(courseId)) {
+      user.enrolledCourses.push([courseId, courseTitle]);
+      await user.save();
+    }
+
+    res.json({ msg: "Enrolled in course successfully" });
+  } catch (e) {
+    res.status(500).json({ msg: "Internal server error" });
+  }
 });
+
+app.get('/courses', async (req, res) => {
+  try {
+    const courses = await courseEnrolledDB.find();
+    res.json(courses);
+  } catch (e) {
+    res.status(500).json({ msg: "Internal server error" });
+  }
+});
+
+app.get('/signin', async (req, res) => {
+  const { email } = req.query;
+
+  try {
+    const user = await courseEnrolledDB.findOne({ email }).populate('enrolledCourses');
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+    res.json(user.enrolledCourses);
+  } catch (e) {
+    res.status(500).json({ msg: "Internal server error" });
+  }
+});
+
+
 // Start Server
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {

@@ -4,11 +4,10 @@ import courses from '../../courseData.js'; // Adjusted path
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function Home() {
-  const location = useLocation();
   const [openCourses, setOpenCourses] = React.useState({});
   const enrolledCourses = courses.filter(course => course.enrolled);
 
-  const firstName = sessionStorage.getItem('userFirstName');
+  const firstName= sessionStorage.getItem('userFirstName');
 
   const handleCourseClick = (courseId) => {
     setOpenCourses(prevState => ({
