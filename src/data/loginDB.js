@@ -1,13 +1,5 @@
 import mongoose from 'mongoose';
 
-mongoose.connect("mongodb+srv://aymenshoteri:Anev3682013.@thewincolumn.0inb4jw.mongodb.net/")
-  .then(() => {
-    console.log("mongodb users connected");
-  })
-  .catch(() => {
-    console.log('failed');
-  });
-
 const newSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -24,9 +16,13 @@ const newSchema = new mongoose.Schema({
   lastName: {
     type: String,
     required: true
+  },
+  admin: {
+    type: Boolean,
+    required: true
   }
 });
 
-const collection = mongoose.model("collection", newSchema);
+const usersLogin = mongoose.model("users", newSchema);
 
-export default collection;
+export default usersLogin;

@@ -30,8 +30,16 @@ html {
         margin-right: auto; /* Pushes the first child to the start */
       }
 
-      .heading-element:last-child {
-        text-decoration: underline;
+      .heading-element:last-child:hover {
+          background-color: #AECDD9;
+          color: #333738;     
+          transition: 0.3s;
+          
+          .sign-out-button {
+            background-color: #AECDD9;
+            color: #333738;
+            transition: 0.3s;
+          }
       }
 
       .heading-element {
@@ -51,6 +59,15 @@ html {
         .pfp {
           width: 3vh;
           height: auto;
+        }
+
+        .sign-out-button {
+          background-color: #333738;
+          color: #AECDD9;
+          border: none;
+          font-size: 1.5rem;
+          font-weight: bold;
+          cursor: pointer;
         }
       }
     }

@@ -28,7 +28,7 @@ function Signin() {
     return (
         <div className="signin">
             <div className="box">
-                <h1 className="title">Welcome Back!</h1>
+                <h1 className="title">Log In!</h1>
                 <form className="signin-form">
                     <div className="form-group">
                         <label htmlFor="email">Email</label>

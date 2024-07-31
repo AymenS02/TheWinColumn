@@ -1,31 +1,43 @@
 import express from 'express';
 import cors from 'cors';
-import collection from './src/data/mongo.js';
+import mongoose from 'mongoose';
+import loginDB from './src/data/loginDB.js';
+import courseEnrolledDB from './src/data/coursesEnrolledDB.js';
 
 const app = express();
+
+mongoose.connect("mongodb+srv://aymenshoteri:Anev3682013.@thewincolumn.0inb4jw.mongodb.net/")
+  .then(() => {
+    console.log("mongodb users connected");
+  })
+  .catch(() => {
+    console.log('failed');
+  });
 
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({extended:true}));
 
+// Test Route
 app.get("/", cors(), (req, res) => {
     res.send("Server is running");
 });
 
+// User Routes
 app.post("/signin", async (req, res) => {
     const { email } = req.body;
 
     try {
-        const check = await collection.findOne({ email: email });
+        const check = await loginDB.findOne({ email: email });
 
         if (check) {
             res.json({ msg: "User already exists", firstName: check.firstName});
         } else {
-            res.json({ msg: "does not exist" });
+            res.json({ msg: "Does not exist" });
         }
 
     } catch (e) {
-        res.json({ msg: "fail" });
+        res.json({ msg: "Fail" });
     }
 });
 
@@ -36,23 +48,38 @@ app.post('/register', async (req, res) => {
         email: email,
         password: password,
         firstName: firstName,
-        lastName: lastName
+        lastName: lastName,
+        admin: false,
     };
 
     try {
-        const check = await collection.findOne({ email: email });
-
-        if (check) {
-            return res.status(400).json({ msg: "User already exists" });
+        const existingUser = await loginDB.findOne({ email: email });
+    
+        if (existingUser) {
+          return res.status(400).json({ msg: "User already exists" });
         } else {
-            await collection.insertMany([data]);  
-            return res.json("User registered successfully");
+          await loginDB.create(data);
+          return res.json("User registered successfully");
         }
-    } catch (e) {
+      } catch (e) {
         return res.status(500).json({ msg: "Internal server error" });
-    }
+      }
 });
 
-app.listen(8000, () => {
-    console.log('Server is running on port 8000');
+// ----------------------------
+
+// Course Routes
+app.post("/courses", async (req, res) => {
+    const { email, courses } = req.body;
+
+    const data = {
+        email: email,
+        courses: Array.from(courses),
+    };
+
+});
+// Start Server
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

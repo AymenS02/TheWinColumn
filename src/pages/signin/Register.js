@@ -18,7 +18,7 @@ function Register() {
             if (res.data.msg === "User already exists") {
                 alert("User already exists");
             } else {
-                navigate("/courses", { state: { id: email } });
+                navigate("/sign-in", { state: { id: email } });
             }
         } catch (e) {
             alert("Error during registration");

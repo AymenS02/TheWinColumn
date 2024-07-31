@@ -41,8 +41,6 @@ function AppContent() {
       const userFirstName = sessionStorage.getItem('userFirstName');
       if (userFirstName) {
         setIsLoggedIn(true);
-      } else {
-        navigate('/sign-in');
       }
     }
   }, [location.state, navigate]);
@@ -116,7 +114,20 @@ function AppContent() {
             <Link to="/sign-in">Sign In</Link>
           </motion.li>
           )}
-          {/* Add a Sign-out link */}
+          {isLoggedIn && (
+            <motion.li 
+              className="heading-element"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            > 
+              <button className="sign-out-button" onClick={() => {
+                setIsLoggedIn(false);
+                sessionStorage.removeItem('userFirstName');
+                navigate('/sign-in')
+              }}>Sign Out</button>
+            </motion.li>
+          )}
         </ul>
       </nav>
       
