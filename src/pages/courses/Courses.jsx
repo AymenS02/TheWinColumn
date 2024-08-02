@@ -4,6 +4,7 @@ import './Courses.scss';
 function Courses() {
   const [enrolledCourses, setEnrolledCourses] = useState([]);
   const [openCourses, setOpenCourses] = useState([]);
+  const [allCourses, setAllCourses] = useState([]);
   const email = sessionStorage.getItem('userEmail');
   const firstName = sessionStorage.getItem('userFirstName');
 
@@ -11,20 +12,28 @@ function Courses() {
     const fetchCourses = async () => {
       const response = await fetch('http://localhost:8000/courses');
       const courses = await response.json();
+      setAllCourses(courses);
       setOpenCourses(courses);
     };
 
-    const fetchEnrolledCourses = async () => {
+    fetchCourses();
+  }, []);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
       if (email) {
-        const response = await fetch(`http://localhost:8000/my-courses?email=${email}`);
-        const courses = await response.json();
-        setEnrolledCourses(courses);
+        const response = await fetch(`http://localhost:8000/users?email=${email}`);
+        const userData = await response.json();
+        const courseIds = userData.enrolledCourses || [];
+        const enrolled = allCourses.filter(course => courseIds.includes(course._id));
+        const open = allCourses.filter(course => !courseIds.includes(course._id));
+        setEnrolledCourses(enrolled);
+        setOpenCourses(open);
       }
     };
 
-    fetchCourses();
-    fetchEnrolledCourses();
-  }, [email]);
+    fetchUserData();
+  }, [allCourses, email]);
 
   const handleEnroll = async (courseId) => {
     if (!email) {
@@ -39,7 +48,9 @@ function Courses() {
     });
 
     if (response.ok) {
-      const newCourse = openCourses.find(course => course._id === courseId);
+      const updatedCourses = allCourses;
+      const newCourse = updatedCourses.find(course => course._id === courseId);
+
       setEnrolledCourses([...enrolledCourses, newCourse]);
       setOpenCourses(openCourses.filter(course => course._id !== courseId));
     } else {

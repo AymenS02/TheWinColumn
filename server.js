@@ -62,7 +62,7 @@ app.post('/register', async (req, res) => {
           return res.json("User registered successfully");
         }
       } catch (e) {
-        return res.status(500).json({ msg: "Internal server error" });
+        return res.status(500).json({ msg: "Internal server error 1" });
       }
 });
 
@@ -70,12 +70,11 @@ app.post('/register', async (req, res) => {
 
 // Course Routes
 app.post("/enroll", async (req, res) => {
-  const { email, courseId, courseTitle } = req.body;
+  const { email, courseId } = req.body;
 
   try {
     const user = await loginDB.findOne({ email: email });
     const course = await courseEnrolledDB.findById(courseId);
-    const title = await courseEnrolledDB.findOne({courseTitle: courseTitle});
 
     if (!user) {
       return res.status(404).json({ msg: "User not found" });
@@ -86,13 +85,13 @@ app.post("/enroll", async (req, res) => {
     }
 
     if (!user.enrolledCourses.includes(courseId)) {
-      user.enrolledCourses.push([courseId, courseTitle]);
+      user.enrolledCourses.push(courseId);
       await user.save();
     }
 
     res.json({ msg: "Enrolled in course successfully" });
   } catch (e) {
-    res.status(500).json({ msg: "Internal server error" });
+    res.status(500).json({ msg: "Internal server error 2" });
   }
 });
 
@@ -101,7 +100,7 @@ app.get('/courses', async (req, res) => {
     const courses = await courseEnrolledDB.find();
     res.json(courses);
   } catch (e) {
-    res.status(500).json({ msg: "Internal server error" });
+    res.status(500).json({ msg: "Internal server error 3" });
   }
 });
 
@@ -115,7 +114,7 @@ app.get('/signin', async (req, res) => {
     }
     res.json(user.enrolledCourses);
   } catch (e) {
-    res.status(500).json({ msg: "Internal server error" });
+    res.status(500).json({ msg: "Internal server error 4" });
   }
 });
 
