@@ -8,20 +8,21 @@ function Courses() {
   const email = sessionStorage.getItem('userEmail');
   const firstName = sessionStorage.getItem('userFirstName');
 
+  // Fetch all courses
   useEffect(() => {
     const fetchCourses = async () => {
       const response = await fetch('http://localhost:8000/courses');
       const courses = await response.json();
       setAllCourses(courses);
-      setOpenCourses(courses);
     };
 
     fetchCourses();
   }, []);
 
+  // Fetch user data and set enrolled and open courses
   useEffect(() => {
     const fetchUserData = async () => {
-      if (email) {
+      if (email && allCourses.length > 0) {
         const response = await fetch(`http://localhost:8000/users?email=${email}`);
         const userData = await response.json();
         const courseIds = userData.enrolledCourses || [];
@@ -33,7 +34,7 @@ function Courses() {
     };
 
     fetchUserData();
-  }, [allCourses, email]);
+  }, [email, allCourses]);
 
   const handleEnroll = async (courseId) => {
     if (!email) {
