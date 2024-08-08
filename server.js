@@ -1,18 +1,27 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import loginDB from './src/data/loginDB.js';
 import courseEnrolledDB from './src/data/courseDB.js';
 
+dotenv.config();
+
 const app = express();
 
-mongoose.connect("mongodb+srv://aymenshoteri:Anev3682013.@thewincolumn.0inb4jw.mongodb.net/")
+mongoose.connect(`mongodb+srv://aymenshoteri:${process.env.PASSWORD}@thewincolumn.0inb4jw.mongodb.net/`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true,
+  tlsInsecure: true // For debugging, not recommended for production
+})
   .then(() => {
     console.log("mongodb users connected");
   })
-  .catch(() => {
-    console.log('failed');
-  });
+  .catch((error) => {
+    console.error('Failed to connect to MongoDB', error);
+});
+
 
 app.use(express.json());
 app.use(cors());
