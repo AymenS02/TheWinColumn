@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 
-mongoose.connect(`mongodb+srv://aymenshoteri:${process.env.PASSWORD}@thewincolumn.0inb4jw.mongodb.net/`, {
+mongoose.connect(`mongodb+srv://aymenshoteri:${process.env.PASSWORD}@thewincolumn.pi2q1br.mongodb.net/`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   ssl: true,
@@ -129,7 +129,7 @@ app.get('/signin', async (req, res) => {
 
 
 // Start Server
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

@@ -15,7 +15,6 @@ function Admin() {
             <Link to="/create">Create a Course</Link>
           </li>
         </ul>
-
         <Routes>
           <Route path="/create" element={<Create />} />
         </Routes>
