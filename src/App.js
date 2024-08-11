@@ -8,7 +8,6 @@ import Community from './pages/community/Community.jsx';
 import Signin from './pages/signin/Signin.js';
 import Register from './pages/signin/Register.js';
 import Admin from './pages/admin/Admin.js';
-import './App.scss';
 import { motion } from 'framer-motion';
 
 function App() {
@@ -46,22 +45,22 @@ function AppContent() {
   }, [location.state, navigate]);
 
   return (
-    <div className="navbar">
-      <nav className="nav">
-        <ul className="heading">
+    <div className="m-0 bg-transparent">
+      <nav className="flex bg-transparent pb-2">
+        <ul className="flex bg-gray-800 items-center justify-end w-full gap-10 font-bold text-lg text-gray-100 pr-10 shadow-[0_4px_6px_rgba(0,0,0,0.4)]">
           <motion.li 
-            className="heading-element"
+            className="first:mr-auto"
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >               
             <Link to="/">
-              <img className="logo" src="/thewin.png" alt="profile" />
+              <img className="h-20 m-6" src="/thewin.png" alt="profile" />
             </Link>
           </motion.li>
           {isLoggedIn && (
             <motion.li 
-              className="heading-element"
+              className=""
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -71,7 +70,7 @@ function AppContent() {
           )}
           {isLoggedIn && (
             <motion.li 
-              className="heading-element"
+              className=""
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -80,7 +79,7 @@ function AppContent() {
             </motion.li>
           )}
           <motion.li 
-            className="heading-element"
+            className=""
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -88,7 +87,7 @@ function AppContent() {
             <Link to="/about">About</Link>
           </motion.li>
           <motion.li 
-            className="heading-element"
+            className=""
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -97,7 +96,7 @@ function AppContent() {
           </motion.li>
           {isLoggedIn && (
             <motion.li 
-              className="heading-element"
+              className=""
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -106,7 +105,7 @@ function AppContent() {
             </motion.li>
           )}
           { !isLoggedIn && (<motion.li 
-            className="heading-element"
+            className=""
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -116,18 +115,18 @@ function AppContent() {
           )}
           {isLoggedIn && (
             <motion.li 
-              className="heading-element"
+              className=""
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             > 
-              <button className="sign-out-button" onClick={() => {
+              <button className="bg-gray-800 text-gray-100 border-none text-lg font-bold cursor-pointer" onClick={() => {
                 setIsLoggedIn(false);
                 sessionStorage.removeItem('userFirstName');
                 navigate('/sign-in')
               }}>Sign Out</button>
             </motion.li>
-          )}
+          )} 
         </ul>
       </nav>
       
@@ -146,8 +145,3 @@ function AppContent() {
 }
 
 export default App;
-
-
-
-
-

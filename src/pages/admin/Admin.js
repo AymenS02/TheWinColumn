@@ -1,23 +1,24 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import Create from './components/create/Create.js';
-import './Admin.scss';
 
 function Admin() {
   return (
-    <div className="admin">
-      <div className="admin-sidebar">
-        <div className='admin-sidebar-header'>
-          <h1 className='admin-sidebar-header-title'>Hello</h1>
+    <div className="m-0 h-">
+      <div className="m-4 flex flex-col w-1/4 border-r-2 border-gray-800 h-[1140px]">
+        <div className="m-2 mt-8">
+          <div className="mb-6 text-2xl">
+            <h1 className="underline">Welcome back Coach!</h1>
+          </div>
+          <ul className="">
+            <li className="">
+              <Link to="/create">Create a Course?</Link>
+            </li>
+          </ul>
+          <Routes>
+            <Route path="/create" element={<Create />} />
+          </Routes>
         </div>
-        <ul className="admin-sidebar-menu">
-          <li className="admin-sidebar-menu-item">
-            <Link to="/create">Create a Course</Link>
-          </li>
-        </ul>
-        <Routes>
-          <Route path="/create" element={<Create />} />
-        </Routes>
       </div>
     </div>
   );
