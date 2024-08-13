@@ -3,8 +3,8 @@ import React from 'react';
 function Contact() {
   return (
     <div className="flex flex-col items-center w-full">
-      <div className="flex flex-col items-center justify-start bg-[#AECDD9] m-10 p-8 rounded-3xl border-2 border-[#333738] shadow-lg">
-        <h1 className="mt-10 text-3xl">Contact Us!</h1>
+      <div className="flex flex-col items-center justify-start bg-gray-800 text-gray-100 m-10 p-8 rounded-3xl border-2 border-gray-100 shadow-lg">
+        <h1 className="mt-4 mb-4 text-3xl">Contact Us!</h1>
         <form className="flex flex-col min-w-[40vh] mt-4">
           <div className="flex flex-col mb-4">
             <label htmlFor="email" className="inline-block w-[100px] mr-2">Email</label>

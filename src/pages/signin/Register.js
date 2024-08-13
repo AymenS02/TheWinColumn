@@ -27,8 +27,8 @@ function Register() {
 
     return (
         <div className="flex flex-col items-center w-full">
-            <div className="flex flex-col items-center justify-center bg-[#AECDD9] m-10 p-8 rounded-3xl border-2 border-[#333738] shadow-lg w-[50vh]">
-                <h1 className="mt-10 text-3xl">Create an Account!</h1>
+            <div className="flex flex-col items-center justify-center bg-gray-800 text-gray-100 border-gray-100 m-10 p-8 rounded-3xl border-2 shadow-lg w-[50vh]">
+                <h1 className="mt-4 mb-4 text-3xl">Create an Account!</h1>
                 <form className="flex flex-col min-w-[40vh] mt-4">
                     <div className="flex flex-col mb-4">
                         <label htmlFor="first-name" className="inline-block w-[150px] mr-2">First Name</label>
@@ -37,7 +37,7 @@ function Register() {
                             id="first-name"
                             onChange={(e) => setFirstName(e.target.value)}
                             placeholder="First Name"
-                            className="w-full h-[2vh] p-2 border rounded"
+                            className="w-full h-[2vh] p-2 border rounded text-gray-800"
                         />
                     </div>
                     <div className="flex flex-col mb-4">
@@ -47,7 +47,7 @@ function Register() {
                             id="last-name"
                             onChange={(e) => setLastName(e.target.value)}
                             placeholder="Last Name"
-                            className="w-full h-[2vh] p-2 border rounded"
+                            className="w-full h-[2vh] p-2 border rounded text-gray-800"
                         />
                     </div>
                     <div className="flex flex-col mb-4">
@@ -57,7 +57,7 @@ function Register() {
                             id="email"
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Email"
-                            className="w-full h-[2vh] p-2 border rounded"
+                            className="w-full h-[2vh] p-2 border rounded text-gray-800"
                         />
                     </div>
                     <div className="flex flex-col mb-4">
@@ -67,7 +67,7 @@ function Register() {
                             id="password"
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Password"
-                            className="w-full h-[2vh] p-2 border rounded"
+                            className="w-full h-[2vh] p-2 border rounded text-gray-800"
                         />
                     </div>
                     <div className="flex flex-col mb-4">
@@ -76,7 +76,7 @@ function Register() {
                             type="password"
                             id="re-password"
                             placeholder="Re-type Password"
-                            className="w-full h-[2vh] p-2 border rounded"
+                            className="w-full h-[2vh] p-2 border rounded text-gray-800"
                         />
                     </div>
                     <button

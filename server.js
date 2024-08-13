@@ -114,16 +114,14 @@ app.get('/courses', async (req, res) => {
 });
 
 app.get('/signin', async (req, res) => {
-  const { email } = req.query;
-
   try {
-    const user = await courseEnrolledDB.findOne({ email }).populate('enrolledCourses');
-    if (!user) {
+    const userInfo = await loginDB.find();
+    res.json(userInfo);
+    if (!userInfo) {
       return res.status(404).json({ msg: "User not found" });
     }
-    res.json(user.enrolledCourses);
   } catch (e) {
-    res.status(500).json({ msg: "Internal server error 4" });
+    res.status(500).json({ msg: "Internal server error 3" });
   }
 });
 
