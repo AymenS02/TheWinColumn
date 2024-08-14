@@ -46,8 +46,8 @@ function AppContent() {
 
   return (
     <div className="m-0 bg-transparent">
-      <nav className="flex bg-transparent pb-2">
-        <ul className="flex bg-gray-800 items-center justify-end w-full gap-10 font-bold text-lg text-gray-100 pr-10 shadow-[0_4px_6px_rgba(0,0,0,0.4)]">
+      <nav className="flex bg-transparent">
+        <ul className="flex bg-gray-800 items-center justify-end w-full gap-10 font-bold text-lg text-gray-100 pr-10 shadow-lg">
           <motion.li 
             className="first:mr-auto"
             whileHover={{ scale: 1.2 }}
@@ -120,7 +120,7 @@ function AppContent() {
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             > 
-              <button className="bg-gray-800 text-gray-100 border-none text-lg font-bold cursor-pointer" onClick={() => {
+              <button className=" text-gray-100 border-none text-lg font-bold cursor-pointer" onClick={() => {
                 setIsLoggedIn(false);
                 sessionStorage.removeItem('userFirstName');
                 navigate('/sign-in')

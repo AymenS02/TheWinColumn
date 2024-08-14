@@ -9,7 +9,8 @@
 
 /* Custom global styles */
 body {
-  background-color: #e0e5e7; /* Set default background color */
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity)) /* #f8fafc */;
   margin: 0;
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
