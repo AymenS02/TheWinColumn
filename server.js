@@ -115,15 +115,22 @@ app.get('/courses', async (req, res) => {
 
 app.get('/signin', async (req, res) => {
   try {
-    const userInfo = await loginDB.find();
-    res.json(userInfo);
-    if (!userInfo) {
-      return res.status(404).json({ msg: "User not found" });
+    const { email } = req.query; // Get the email from query parameters
+    if (!email) {
+      return res.status(400).json({ msg: "Email is required" }); // Handle missing email
     }
+
+    const userInfo = await loginDB.findOne({ email: email }); // Find user by email
+    if (!userInfo) {
+      return res.status(404).json({ msg: "User not found" }); // If no user found
+    }
+
+    res.json(userInfo); // Send back the user info if found
   } catch (e) {
-    res.status(500).json({ msg: "Internal server error 3" });
+    res.status(500).json({ msg: "Internal server error" });
   }
 });
+
 
 
 // Start Server

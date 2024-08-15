@@ -22,8 +22,6 @@ function Courses() {
       if (email && allCourses.length > 0) {
         const response = await fetch(`http://localhost:8000/signin?email=${email}`);
         const userData = await response.json();
-        console.log(response);
-        console.log(userData);
         const courseIds = userData.enrolledCourses || [];
         const enrolled = allCourses.filter(course => courseIds.includes(course._id));
         const open = allCourses.filter(course => !courseIds.includes(course._id));
@@ -62,25 +60,21 @@ function Courses() {
 
   return (
     <div className="m-0">
-      <div className="min-h-[70%]">
-        <h1 className="m-0 p-[3vh] pt-[3vh] pb-[7vh] text-3xl text-gray-800 text-center bg-gradient-to-b flex items-center justify-start">
-          Welcome Back, {firstName || "Guest"}!
-        </h1>
-      </div>
-      <div className="p-[3vh] border-b-2 border-[#333738] flex flex-col">
-        <h1>Currently Enrolled Courses</h1>
-        <div className="flex flex-wrap">
+      <h1 className="p-[3vh] pt-[3vh] pb-[7vh] text-5xl text-gray-800 font-bold">Welcome Back, {firstName || "Guest"}!</h1>
+      <div className="p-[3vh] flex flex-col">
+        <h1 className='text-3xl text-gray-800 font-bold'>Currently Enrolled Courses</h1>
+        <div className="flex flex-wrap gap-10">
           {enrolledCourses.map(course => (
             <div
               key={course._id}
-              className="text-[#e3dddd] bg-[#333738] w-[30vh] flex flex-col justify-between items-center mr-[2vh] border-b-2 border-[#333738] mb-[2vh]"
+              className="text-gray-800 bg-gray-400 w-[400px] flex flex-col my-4 shadow-lg rounded-lg"
             >
-              <img src={course.image} alt={course.title} className="w-[30vh] object-cover" />
-              <div className="w-full h-full flex flex-col justify-between items-center cursor-pointer transition duration-300 hover:bg-[#e3dddd] hover:text-[#333738] hover:border hover:border-[#333738]">
-                <h2 className="text-xl m-0 p-[1vh] text-center">{course.title}</h2>
+              <img src={course.image} alt={course.title} className="object-cover shadow-md" />
+              <div className="h-full flex flex-col justify-between items-center">
+                <h2 className="text-2xl m-0 p-[1vh] text-center">{course.title}</h2>
                 <a
                   href={course.url}
-                  className="bg-[#333738] text-[#e3dddd] border border-[#e3dddd] p-[1vh] m-[1vh] no-underline cursor-pointer transition duration-300 hover:bg-[#e3dddd] hover:text-[#333738] hover:border-[#333738]"
+                  className="bg-gray-400 text-gray-800 border border-[#e3dddd] p-[1vh] m-[1vh] no-underline cursor-pointer transition duration-300 hover:bg-[#e3dddd] hover:text-[#333738] hover:border-[#333738]"
                 >
                   Go to Course
                 </a>
@@ -89,20 +83,20 @@ function Courses() {
           ))}
         </div>
       </div>
-      <div className="p-[3vh] border-b-2 border-[#333738] flex flex-col">
-        <h1>Other Courses</h1>
-        <div className="flex flex-wrap">
+      <div className="p-[3vh] flex flex-col">
+        <h1 className='text-3xl text-gray-800 font-bold'>Other Courses</h1>
+        <div className="flex flex-wrap gap-10">
           {openCourses.map(course => (
             <div
               key={course._id}
-              className="text-[#e3dddd] bg-[#333738] w-[30vh] flex flex-col justify-between items-center mr-[2vh] border-b-2 border-[#333738] mb-[2vh]"
+              className="text-gray-800 bg-gray-400 w-[400px] flex flex-col my-4 shadow-lg rounded-lg"
             >
-              <img src={course.image} alt={course.title} className="w-[30vh] object-cover" />
-              <div className="w-full h-full flex flex-col justify-between items-center cursor-pointer transition duration-300 hover:bg-[#e3dddd] hover:text-[#333738] hover:border hover:border-[#333738]">
-                <h2 className="text-xl m-0 p-[1vh] text-center">{course.title}</h2>
+              <img src={course.image} alt={course.title} className="object-cover shadow-md" />
+              <div className="h-full flex flex-col justify-between items-center">
+                <h2 className="text-2xl m-0 p-[1vh] text-center">{course.title}</h2>
                 <button
                   onClick={() => handleEnroll(course._id)}
-                  className="bg-[#333738] text-[#e3dddd] border border-[#e3dddd] p-[1vh] m-[1vh] no-underline cursor-pointer transition duration-300 hover:bg-[#e3dddd] hover:text-[#333738] hover:border-[#333738]"
+                  className="bg-gray-400 text-gray-800 border border-[#e3dddd] p-[1vh] m-[1vh] no-underline cursor-pointer transition duration-300 hover:bg-[#e3dddd] hover:text-[#333738] hover:border-[#333738]"
                 >
                   Join Course
                 </button>

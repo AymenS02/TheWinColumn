@@ -1,6 +1,4 @@
 import React from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
-import Create from './components/create/Create.js';
 
 function Admin() {
   return (
@@ -12,12 +10,11 @@ function Admin() {
           </div>
           <ul className="">
             <li className="">
-              <Link to="/create">Create a Course?</Link>
+              <a href="/admin/components/create" rel="noopener noreferrer">
+                Create a Course?
+              </a>
             </li>
           </ul>
-          <Routes>
-            <Route path="/create" element={<Create />} />
-          </Routes>
         </div>
       </div>
     </div>

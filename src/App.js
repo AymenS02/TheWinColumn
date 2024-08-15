@@ -8,6 +8,8 @@ import Community from './pages/community/Community.jsx';
 import Signin from './pages/signin/Signin.js';
 import Register from './pages/signin/Register.js';
 import Admin from './pages/admin/Admin.js';
+import Profile from './pages/profile/Profile.jsx';
+import Create from './pages/admin/components/Create.js';
 import { motion } from 'framer-motion';
 
 function App() {
@@ -120,11 +122,7 @@ function AppContent() {
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             > 
-              <button className=" text-gray-100 border-none text-lg font-bold cursor-pointer" onClick={() => {
-                setIsLoggedIn(false);
-                sessionStorage.removeItem('userFirstName');
-                navigate('/sign-in')
-              }}>Sign Out</button>
+              <Link to="/profile">Profile</Link>
             </motion.li>
           )} 
         </ul>
@@ -132,13 +130,15 @@ function AppContent() {
       
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/*" element={<Courses />} />
         <Route path="/about" element={<About />} />
         {isLoggedIn && <Route path="/community" element={<Community />} />}
         <Route path="/contact" element={<Contact />} />
-        {isLoggedIn && <Route path="/admin" element={<Admin />} />}
+        {isLoggedIn && <Route path="/admin/*" element={<Admin />} />}
         <Route path="/sign-in" element={<Signin />} />
         <Route path="/register" element={<Register />} />
+        {isLoggedIn && <Route path="/profile" element={<Profile setIsLoggedIn={setIsLoggedIn} />} />} {/* Pass setIsLoggedIn */}
+        <Route path="/admin/components/create" element={<Create />} />
       </Routes>
     </div>
   );

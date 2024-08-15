@@ -1,5 +1,4 @@
 import React from 'react';
-import './Community.scss';
 
 function Community() {
     return (

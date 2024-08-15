@@ -1,6 +1,5 @@
 // pages/About.js
 import React from 'react';
-import './About.scss';
 
 function About() {
   return (
