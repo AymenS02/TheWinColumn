@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Home from './pages/home/Home.js';
-import About from './pages/about/About.js';
-import Contact from './pages/contact/Contact.js';
-import Courses from './pages/courses/Courses.jsx';
-import Community from './pages/community/Community.jsx';
+import Home from './pages/Home.js';
+import About from './pages/About.js';
+import Contact from './pages/Contact.js';
+import Courses from './pages/Courses.jsx';
+import Community from './pages/Community.jsx';
 import Signin from './pages/signin/Signin.js';
 import Register from './pages/signin/Register.js';
 import Admin from './pages/admin/Admin.js';
-import Profile from './pages/profile/Profile.jsx';
+import Profile from './pages/Profile.jsx';
 import Create from './pages/admin/components/Create.js';
 import { motion } from 'framer-motion';
 
@@ -48,7 +48,7 @@ function AppContent() {
 
   return (
     <div className="m-0 bg-transparent">
-      <nav className="flex bg-transparent">
+      <nav className="flex bg-transparent h-[10vh] box-border">
         <ul className="flex bg-gray-800 items-center justify-end w-full gap-10 font-bold text-lg text-gray-100 pr-10 shadow-lg">
           <motion.li 
             className="first:mr-auto"

@@ -1,6 +1,5 @@
-import React from 'react';
-import courses from '../../courseData.js'; // Adjusted path
-import { useLocation, useNavigate } from 'react-router-dom';
+import courses from '../courseData.js'; // Adjusted path
+import React, { useEffect } from 'react';
 
 function Home() {
   const [openCourses, setOpenCourses] = React.useState({});
@@ -15,6 +14,16 @@ function Home() {
     }));
   };
 
+  useEffect(() => {
+    const fetchCourses = async () => {
+      const response = await fetch('http://localhost:8000/courses');
+      const courses = await response.json();
+    };
+
+    fetchCourses();
+
+  }, []);
+
   return (
     <div className="flex flex-col h-screen">
       <div className="flex flex-col items-center justify-center min-h-[50vh]">
@@ -24,12 +33,12 @@ function Home() {
         </div>
       </div>
       <div className="bg-gray-800 pt-[4vh] h-screen">
-        <h2 className="text-[3em] text-gray-100 m-0 flex justify-center items-center pb-[2vh] text-center">
-          Course Curriculum
+        <h2 className="text-[3em]  text-gray-100 m-0 flex justify-center items-center pb-[2vh] text-center">
+          <u>Course Curriculum</u>
         </h2>
         <ul className="list-none p-0 pt-[2vh] m-0">
           {enrolledCourses.map((course) => (
-            <li key={course.id} className="flex justify-center p-8">
+            <li key={course.id} className="flex justify-center p-4">
               <div className="flex flex-col w-1/2 justify-center items-center border-2 p-5 border-gray-100">
               {openCourses[course.id] ? (
                 <div className='flex flex-col justify-center'>

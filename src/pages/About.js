@@ -3,18 +3,28 @@ import React from 'react';
 
 function About() {
   return (
-    <div className="about">
-      <h1>Turning Losses Into Lessons</h1>
-      <h3>& Wins Into Stepping Stones</h3>
+    <div className="m-0 p-0">
 
-      <h2 className='title'>Welcome to The Win Column</h2>
+      <div className="flex justify-evenly my-[30px]">
+      <h2 className='flex items-center'>Welcome to The Win Column</h2>
+        <div className='flex flex-col items-center justify-center text-center bg-sky-900 text-blue-100 w-[200px] h-[200px] rounded-full ml-[100px]'>
+          <h1 className=''>Turning Losses Into Lessons</h1>
+          <h3 className=''>& Wins Into Stepping Stones</h3>
+        </div>
+      </div>
+
       <hr /> 
-      <p>The Win Column is an organization dedicated to helping clients in Human and Business Optimization across the globe. We assist clients in making small, incremental steps toward their goals while strategically fostering exponential growth. We believe in providing the "How", the "Where", and the "Why", NOT just the "What."  We equip our clients with the tools and resources they need to become their own superheroes - our clients launch into their own realm of greatness as they motivate and inspire those around them!</p>
-      <h2 className='title'>Our Mission</h2>
+
+      <div>
+        <p>The Win Column is an organization dedicated to helping clients in Human and Business Optimization across the globe. We assist clients in making small, incremental steps toward their goals while strategically fostering exponential growth. We believe in providing the "How", the "Where", and the "Why", NOT just the "What."  We equip our clients with the tools and resources they need to become their own superheroes - our clients launch into their own realm of greatness as they motivate and inspire those around them!</p>
+        <h2 className='title'>Our Mission</h2>
+        <hr /> 
+        <p>To pull people toward a life of fulfillment by design, not just existence by default. </p>
+        <h2 className='title'>Meet Coach Jay Khan</h2>
+      </div>
+      
       <hr /> 
-      <p>To pull people toward a life of fulfillment by design, not just existence by default. </p>
-      <h2 className='title'>Meet Coach Jay Khan</h2>
-      <hr /> 
+
       <div className='meet-coach'>
         <div className='body'>
           <h3><strong>HEAD COACH & FOUNDER</strong></h3>
@@ -53,8 +63,10 @@ function About() {
         <img src="/about/instagram-icon.webp" alt="Instagram" className='instagram-icon' onClick={() => window.location.href = 'https://x.com/home'} />
         <img src="/about/instagram-icon.webp" alt="Instagram" className='instagram-icon' onClick={() => window.location.href = 'https://www.youtube.com/channel/UCG6Blz3ouFL-3c6scAEM3xg'} />
       </div>
-    </div>
+      </div>
+    
   );
 }
 
 export default About;
+
